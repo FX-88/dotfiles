@@ -1,0 +1,182 @@
+;; Eww Configuration - Hyprland Style
+;; Salva questo file in ~/.config/eww/eww.yuck
+
+;; ============================================
+;; VARIABILI E POLLING
+;; ============================================
+
+;; Workspace corrente i3
+(defpoll workspace :interval "100ms"
+  `i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'`)
+
+;; Lista workspace i3
+(defpoll workspaces :interval "100ms"
+  `i3-msg -t get_workspaces | jq -c '.[]'`)
+
+;; Titolo finestra attiva
+(defpoll window-title :interval "500ms"
+  `xdotool getactivewindow getwindowname 2>/dev/null || echo "Desktop"`)
+
+;; Data e ora
+(defpoll time :interval "1s"
+  `date '+%H:%M:%S'`)
+
+(defpoll date :interval "60s"
+  `date '+%a %d %b'`)
+
+;; CPU
+(defpoll cpu-usage :interval "2s"
+  `top -bn1 | grep "Cpu(s)" | sed "s/.*, *\\([0-9.]*\\)%* id.*/\\1/" | awk '{print 100 - $1}'`)
+
+;; RAM
+(defpoll memory-usage :interval "2s"
+  `free | grep Mem | awk '{print ($3/$2) * 100.0}'`)
+
+;; Batteria
+(defpoll battery-percentage :interval "5s"
+  `cat /sys/class/power_supply/BAT0/capacity 2>/dev/null || echo "100"`)
+
+(defpoll battery-status :interval "5s"
+  `cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo "Unknown"`)
+
+;; Volume
+(defpoll volume :interval "1s"
+  `pamixer --get-volume`)
+
+(defpoll volume-muted :interval "1s"
+  `pamixer --get-mute`)
+
+;; Network
+(defpoll network-ssid :interval "5s"
+  `nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d':' -f2 || echo "Disconnected"`)
+
+;; ============================================
+;; WIDGETS
+;; ============================================
+
+;; Widget Workspace (stile Hyprland)
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :spacing 5
+       :space-evenly false
+    (for ws in workspaces
+      (button :class {ws =~ '"focused":true' ? "workspace-active" : "workspace-inactive"}
+              :onclick "i3-msg workspace ${ws =~ '"name":"([^"]+)"'}"
+        {ws =~ '"name":"([^"]+)"'}))))
+
+;; Widget finestra attiva
+(defwidget active-window []
+  (box :class "active-window"
+       :orientation "h"
+    (label :text {window-title != "" ? "  ${window-title}" : "  Desktop"}
+           :limit-width 60)))
+
+;; Widget data/ora
+(defwidget datetime []
+  (box :class "datetime"
+       :orientation "h"
+       :spacing 10
+    (label :text "  ${date}")
+    (label :text "  ${time}")))
+
+;; Widget CPU
+(defwidget cpu []
+  (box :class "cpu"
+       :orientation "h"
+       :spacing 5
+       :tooltip "CPU Usage"
+    (label :text "")
+    (label :text "${round(cpu-usage, 0)}%")))
+
+;; Widget RAM
+(defwidget memory []
+  (box :class "memory"
+       :orientation "h"
+       :spacing 5
+       :tooltip "Memory Usage"
+    (label :text "")
+    (label :text "${round(memory-usage, 0)}%")))
+
+;; Widget Volume
+(defwidget volume-widget []
+  (box :class "volume"
+       :orientation "h"
+       :spacing 5
+       :tooltip "Volume: ${volume}%"
+    (label :text {volume-muted == "true" ? "" : 
+                  volume < 33 ? "" : 
+                  volume < 66 ? "" : ""})
+    (label :text "${volume}%")))
+
+;; Widget Network
+(defwidget network []
+  (box :class "network"
+       :orientation "h"
+       :spacing 5
+       :tooltip "Network: ${network-ssid}"
+    (label :text {network-ssid == "Disconnected" ? "" : ""})
+    (label :text {network-ssid != "Disconnected" ? network-ssid : "Offline"})))
+
+;; Widget Batteria
+(defwidget battery []
+  (box :class "battery"
+       :orientation "h"
+       :spacing 5
+       :tooltip "Battery: ${battery-percentage}% (${battery-status})"
+    (label :text {battery-status == "Charging" ? "" :
+                  battery-percentage > 80 ? "" :
+                  battery-percentage > 60 ? "" :
+                  battery-percentage > 40 ? "" :
+                  battery-percentage > 20 ? "" : ""})
+    (label :text "${battery-percentage}%")))
+
+;; ============================================
+;; BAR PRINCIPALE
+;; ============================================
+
+(defwidget bar []
+  (centerbox :class "bar"
+             :orientation "h"
+    ;; Sinistra
+    (box :class "bar-section-left"
+         :orientation "h"
+         :spacing 10
+         :halign "start"
+         :space-evenly false
+      (workspaces)
+      (active-window))
+    
+    ;; Centro
+    (box :class "bar-section-center"
+         :orientation "h"
+         :halign "center"
+      (datetime))
+    
+    ;; Destra
+    (box :class "bar-section-right"
+         :orientation "h"
+         :spacing 10
+         :halign "end"
+         :space-evenly false
+      (volume-widget)
+      (cpu)
+      (memory)
+      (network)
+      (battery))))
+
+;; ============================================
+;; FINESTRA BAR
+;; ============================================
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "32px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (bar))

@@ -1,0 +1,168 @@
+/* Eww Styles - Hyprland Inspired */
+/* Salva questo file in ~/.config/eww/eww.scss */
+
+/* ============================================
+   COLORI CATPPUCCIN (come Hyprland)
+   ============================================ */
+* {
+    all: unset;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+}
+
+/* Variabili colore */
+@define-color background #1e1e2e;
+@define-color background-alt #313244;
+@define-color foreground #cdd6f4;
+@define-color primary #89b4fa;
+@define-color secondary #f5c2e7;
+@define-color alert #f38ba8;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color orange #fab387;
+@define-color disabled #6c7086;
+
+/* ============================================
+   BAR PRINCIPALE
+   ============================================ */
+.bar {
+    background-color: @background;
+    color: @foreground;
+    padding: 0 10px;
+    border-bottom: 2px solid @primary;
+}
+
+.bar-section-left,
+.bar-section-center,
+.bar-section-right {
+    padding: 0 5px;
+}
+
+/* ============================================
+   WORKSPACES (stile Hyprland)
+   ============================================ */
+.workspaces {
+    padding: 0 5px;
+}
+
+.workspace-active {
+    background-color: @primary;
+    color: @background;
+    padding: 5px 15px;
+    margin: 0 2px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.workspace-inactive {
+    background-color: @background-alt;
+    color: @foreground;
+    padding: 5px 15px;
+    margin: 0 2px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.workspace-inactive:hover {
+    background-color: alpha(@primary, 0.3);
+    color: @primary;
+}
+
+/* ============================================
+   FINESTRA ATTIVA
+   ============================================ */
+.active-window {
+    color: @primary;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+/* ============================================
+   DATA E ORA
+   ============================================ */
+.datetime {
+    color: @foreground;
+    padding: 5px 10px;
+}
+
+.datetime label {
+    padding: 0 5px;
+}
+
+/* ============================================
+   MODULI SISTEMA
+   ============================================ */
+.cpu {
+    color: @orange;
+    padding: 5px 10px;
+    background-color: alpha(@orange, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.cpu:hover {
+    background-color: alpha(@orange, 0.2);
+}
+
+.memory {
+    color: @yellow;
+    padding: 5px 10px;
+    background-color: alpha(@yellow, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.memory:hover {
+    background-color: alpha(@yellow, 0.2);
+}
+
+.volume {
+    color: @green;
+    padding: 5px 10px;
+    background-color: alpha(@green, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.volume:hover {
+    background-color: alpha(@green, 0.2);
+}
+
+.network {
+    color: @primary;
+    padding: 5px 10px;
+    background-color: alpha(@primary, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.network:hover {
+    background-color: alpha(@primary, 0.2);
+}
+
+.battery {
+    color: @green;
+    padding: 5px 10px;
+    background-color: alpha(@green, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.battery:hover {
+    background-color: alpha(@green, 0.2);
+}
+
+/* ============================================
+   ICONE
+   ============================================ */
+label {
+    color: inherit;
+}
+
+/* ============================================
+   TRANSIZIONI E ANIMAZIONI
+   ============================================ */
+* {
+    transition: all 0.2s ease;
+}
