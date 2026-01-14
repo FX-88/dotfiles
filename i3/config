@@ -10,6 +10,7 @@ set $mod Mod4
 # INCLUDE FILES #
 include ~/.config/i3/keybinds.conf
 include ~/.config/i3/exec.conf
+include ~/.config/i3/window_control.conf
 
 
 
@@ -38,39 +39,12 @@ tiling_drag modifier titlebar
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        position top
-        font pango:monospace 10
-}
+#bar {
+#        status_command i3status
+#        position top
+#        font pango:monospace 10
+#}
 
 for_window [class="^.*"] floating enable
 
 
-
-# WINDOW APPEARANCE #
-gaps inner 10
-gaps outer 5
-default_border pixel 2
-default_floating_border pixel 2
-hide_edge_borders smart
-smart_gaps on
-
-
-# Layout predefinito (dwindle style di Hyprland)
-workspace_layout default
-
-# Orientamento split automatico (più simile a Hyprland)
-default_orientation auto
-
-# Popup durante fullscreen
-popup_during_fullscreen smart
-
-# Focus segue il mouse (come Hyprland)
-focus_follows_mouse yes
-
-# Wrapping nei container (simile a Hyprland)
-force_focus_wrapping no
-
-# Mostra i bordi anche con una sola finestra
-#hide_edge_borders none
