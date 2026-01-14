@@ -1,6 +1,10 @@
-# This is a dotfile configuration for i3 on linux mint to make it look like hyprland (for DEBIAN ONLY)
+# This is a dotfile configuration for Linux Mint to make it look like Hyprland
 
-It needs to be fully tested on mint.
+##It includes the WM i3 for its customisation
+
+>DEBIAN ONLY
+
+#It needs to be fully tested on mint.
 
 In order to make the .sh executable you need to make this command :
 
