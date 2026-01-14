@@ -1,4 +1,16 @@
 #THIS INSTALLATION SCRIPT IS JUST FOR THE GRAPHIC PART, IT DOES NOT INCLUDE THE WINDOW MANAGER SETUP
+
+echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
+echo "ARE YOU TESTING THE SCRIPT? (y/n)"
+read test_answer
+if [ "$test_answer" != "${test_answer#[Yy]}" ] ;then
+    continue
+else
+    echo "Installation aborted."
+    exit 1
+fi
+
+
 echo "THIS SCRIPT WILL ONLY SETUP THE GRAPHIC ENVIRONMENT. DO YOU WISH TO CONTINUE? (y/n)"
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then

@@ -1,6 +1,27 @@
 #This is a temporary installation script for setting up the project environment
 #IT'S NOT READY FOR PRODUCTION USE
 
+echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
+echo "ARE YOU TESTING THE SCRIPT? (y/n)"
+read test_answer
+if [ "$test_answer" != "${test_answer#[Yy]}" ] ;then
+    continue
+else
+    echo "Installation aborted."
+    exit 1
+fi
+
+echo "THIS SCRIPT WILL INSTALL THE WM AND ITS DEPENDENCIES, THIS INCLUDES COPYING FILES TO YOUR HOME DIRECTORY"
+echo "DO YOU WISH TO CONTINUE? (y/n)"
+read response
+if [ "$response" != "${response#[Yy]}" ] ;then
+    continue
+else
+    echo "Installation aborted."
+    exit 1
+fi
+
+
 echo "Starting installation..."
 echo "Updating system packages..."
 #Update and upgrade system packages#
