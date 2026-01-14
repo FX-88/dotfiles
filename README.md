@@ -12,6 +12,8 @@ chmod +x ~/dotfiles/graphic.sh
 chmod +x ~/dotfiles/ulauncher.sh
 '''
 
+## Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
+
 In order to use that you need to uncomments some lines in the installation script.
 
 >The dotfile is fully made in italian (my native languadge).
