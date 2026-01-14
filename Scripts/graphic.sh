@@ -1,14 +1,14 @@
 #THIS INSTALLATION SCRIPT IS JUST FOR THE GRAPHIC PART, IT DOES NOT INCLUDE THE WINDOW MANAGER SETUP
 
-echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
-echo "ARE YOU TESTING THE SCRIPT? (y/n)"
-read test_answer
-if [ "$test_answer" == "${test_answer#[Yy]}" ] ;then
-    continue
-else
-    echo "Installation aborted."
-    exit 1
-fi
+#echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
+#echo "ARE YOU TESTING THE SCRIPT? (y/n)"
+#read test_answer
+#if [ "$test_answer" == "${test_answer#[Yy]}" ] ;then
+#    continue
+#else
+#    echo "Installation aborted."
+#    exit 1
+#fi
 
 
 echo "THIS SCRIPT WILL ONLY SETUP THE GRAPHIC ENVIRONMENT. DO YOU WISH TO CONTINUE? (y/n)"
@@ -75,14 +75,14 @@ fi
 #chmod +x ~/.config/polybar/launch.sh
 
 #IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
-#cp ~/dotfiles/eww/eww.rasi $HOME/.config/eww/
+#cp ~/dotfiles/eww/eww.rasi $HOME/.config/eww/#
 
 
 echo "Do you wish to install ulauncher as an application launcher? (y/n)"
 read ulauncher_answer
 if [ "$ulauncher_answer" == "${ulauncher_answer#[Yy]}" ] ;then
-    chmod +x ./ulauncher.sh
-    ./ulauncher.sh
+    chmod +x ./Scripts/ulauncher.sh
+    ./Scripts/ulauncher.sh
 fi
 
 echo "Installation complete! Please restart your session to apply the changes."

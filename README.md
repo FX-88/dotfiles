@@ -16,27 +16,6 @@ chmod +x ~/dotfiles/install.sh
 ./install.sh
 ```
 
-
-## For ONLY the graphic intercaces 
-
-```bash
-chmod +x ~/dotfiles/graphic.sh
-```
-
-```bash
-./graphic.sh
-```
-
-## For ONLY ULauncher
-
-```bash
-chmod +x ~/dotfiles/ulauncher.sh
-```
-
-```bash
-./ulauncher.sh
-```
-
 ### Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
 
 In order to use that you need to uncomments some lines in the installation script.
