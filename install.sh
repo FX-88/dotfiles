@@ -3,7 +3,7 @@
 
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install i3 eww picom polybar 
+sudo apt install i3 eww picom polybar stow
 
 if ([ ! -d "$HOME/.config/i3" ]); then
     mkdir -p $HOME/.config/i3
@@ -24,6 +24,13 @@ if ([ ! -d "$HOME/.config/polybar" ]); then
     mkdir -p $HOME/.config/polybar
     cp -r ./polybar/* $HOME/.config/polybar/
 fi
+
+# Use stow to manage .config files 
+# It automatically links files from the project directory to the home directory
+stow i3 
+stow eww
+stow picom
+stow polybar
 
 echo "Installation complete! Please restart your session to apply the changes."
 # Note: Additional steps may be required to fully configure the environment.
