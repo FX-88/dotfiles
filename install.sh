@@ -4,7 +4,7 @@
 echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
 echo "ARE YOU TESTING THE SCRIPT? (y/n)"
 read test_answer
-if [ "$test_answer" != "${test_answer#[Yy]}" ] ;then
+if [ "$test_answer" == "${test_answer#[Yy]}" ] ;then
     continue
 else
     echo "Installation aborted."
@@ -14,7 +14,7 @@ fi
 echo "THIS SCRIPT WILL INSTALL THE WM AND ITS DEPENDENCIES, THIS INCLUDES COPYING FILES TO YOUR HOME DIRECTORY"
 echo "DO YOU WISH TO CONTINUE? (y/n)"
 read response
-if [ "$response" != "${response#[Yy]}" ] ;then
+if [ "$response" == "${response#[Yy]}" ] ;then
     continue
 else
     echo "Installation aborted."
@@ -88,6 +88,13 @@ fi
 #IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
 #cp ~/dotfiles/eww/eww.rasi $HOME/.config/ew  
 
+
+echo "Do you wish to install ulauncher as an application launcher? (y/n)"
+read ulauncher_answer
+if [ "$ulauncher_answer" == "${ulauncher_answer#[Yy]}" ] ;then
+    chmod +x ./ulauncher.sh
+    ./ulauncher.sh
+fi
 
 echo "Installation complete! Please restart your session to apply the changes."
 # Note: Additional steps may be required to fully configure the environment.
