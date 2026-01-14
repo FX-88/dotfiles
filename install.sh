@@ -20,10 +20,11 @@ if ([ ! -d "$HOME/.config/i3" ]); then
     #cp -r ./i3/* $HOME/.config/i3/
 fi
 
-if ([ ! -d "$HOME/.config/eww" ]); then
-    mkdir -p $HOME/.config/eww
-    #cp -r ./eww/* $HOME/.config/eww/
-fi
+#IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
+#if ([ ! -d "$HOME/.config/eww" ]); then
+#    mkdir -p $HOME/.config/eww
+#    #cp -r ./eww/* $HOME/.config/eww/
+#fi
 
 if ([ ! -d "$HOME/.config/picom" ]); then
     mkdir -p $HOME/.config/picom
@@ -47,6 +48,10 @@ cp ~/dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
 
 #If you want to make the launch script executable, uncomment the line below
 #chmod +x ~/.config/polybar/launch.sh
+
+#IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
+#cp ~/dotfiles/eww/eww.rasi $HOME/.config/ew  
+
 
 echo "Installation complete! Please restart your session to apply the changes."
 # Note: Additional steps may be required to fully configure the environment.
