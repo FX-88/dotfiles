@@ -9,7 +9,15 @@ In order to make the .sh executable you need to make this command :
 ## For the complete install script
 
 ```bash
-chmod +x ~/dotfiles/install.sh
+git clone https://github.com/FX-88/dotfiles.git
+```
+
+```bash
+cd dotfiles
+```
+
+```bash
+chmod +x ./install.sh
 ```
 
 ```bash
