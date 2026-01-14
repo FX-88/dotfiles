@@ -82,11 +82,12 @@ else
     cp ~/dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
 fi 
 
+
 #If you want to make the launch script executable, uncomment the line below
 #chmod +x ~/.config/polybar/launch.sh
 
 #IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
-#cp ~/dotfiles/eww/eww.rasi $HOME/.config/ew  
+#cp ~/dotfiles/eww/eww.rasi $HOME/.config/eww
 
 
 echo "Do you wish to install ulauncher as an application launcher? (y/n)"

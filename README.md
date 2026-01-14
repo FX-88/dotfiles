@@ -12,16 +12,29 @@ In order to make the .sh executable you need to make this command :
 chmod +x ~/dotfiles/install.sh
 ```
 
+```bash
+./install.sh
+```
+
+
 ## For ONLY the graphic intercaces 
 
 ```bash
 chmod +x ~/dotfiles/graphic.sh
 ```
 
+```bash
+./graphic.sh
+```
+
 ## For ONLY ULauncher
 
 ```bash
 chmod +x ~/dotfiles/ulauncher.sh
+```
+
+```bash
+./ulauncher.sh
 ```
 
 ### Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime

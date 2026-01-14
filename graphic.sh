@@ -70,10 +70,20 @@ else
     echo "Configuration files copied"
 fi 
 
+
 #If you want to make the launch script executable, uncomment the line below
 #chmod +x ~/.config/polybar/launch.sh
 
 #IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
 #cp ~/dotfiles/eww/eww.rasi $HOME/.config/eww/
+
+
+echo "Do you wish to install ulauncher as an application launcher? (y/n)"
+read ulauncher_answer
+if [ "$ulauncher_answer" == "${ulauncher_answer#[Yy]}" ] ;then
+    chmod +x ./ulauncher.sh
+    ./ulauncher.sh
+fi
+
 echo "Installation complete! Please restart your session to apply the changes."
 # Note: Additional steps may be required to fully configure the environment.
