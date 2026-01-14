@@ -18,10 +18,13 @@ echo "4. Exit"
 read choice
 
 if [ "$choice" == "1" ]; then
+    chmod +x ./Scripts/graphic.sh
     ./Scripts/graphic.sh
 elif [ "$choice" == "2" ]; then
+    chmod +x ./Scripts/complete.sh
     ./Scripts/complete.sh
 elif [ "$choice" == "3" ]; then
+    chmod +x ./Scripts/ulauncher.sh
     ./Scripts/ulauncher.sh
 elif [ "$choice" == "4" ]; then
     echo "Exiting installation."
