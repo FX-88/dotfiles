@@ -1,4 +1,4 @@
-# This is a dotfile configuration for i3 on linux mint to make it look like hyprland (for debian)
+# This is a dotfile configuration for i3 on linux mint to make it look like hyprland (for DEBIAN ONLY)
 
 It needs to be fully tested on mint.
 
