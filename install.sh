@@ -28,7 +28,7 @@ echo "Updating system packages..."
 sudo apt update && sudo apt upgrade -y
 
 #Install necessary packages#
-sudo apt install i3 eww polybar fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
+sudo apt install i3 eww polybar feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
 echo "Installed necessary packages and dependencies."
 
 #Install picom from source#
