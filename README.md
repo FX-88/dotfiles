@@ -16,12 +16,12 @@ chmod +x ~/dotfiles/install.sh
 chmod +x ~/dotfiles/graphic.sh
 ```
 
-# For ONLY ULauncher
+## For ONLY ULauncher
 ```bash
 chmod +x ~/dotfiles/ulauncher.sh
 ```
 
-## Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
+### Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
 
 In order to use that you need to uncomments some lines in the installation script.
 
