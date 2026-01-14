@@ -3,7 +3,7 @@
 
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install i3 eww picom polybar stow
+sudo apt install i3 eww picom polybar stow fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
 
 if ([ ! -d "$HOME/.config/i3" ]); then
     mkdir -p $HOME/.config/i3
