@@ -2,8 +2,6 @@
 
 It needs to be fully tested on mint.
 
-This dotfile includes the eww config.
-
 In order to make the .sh executable you need to make this command :
 
 ## For the complete install script
@@ -28,4 +26,6 @@ chmod +x ./install.sh
 
 In order to use that you need to uncomments some lines in the installation script.
 
->The dotfile is fully made in italian (my native languadge).
+>This dotfile includes the eww config. (it need to be enabled on the complete install script by un-commenting its lines)
+
+>Almost every comment line in this dotfile is made in italian (my native languadge), but some of them are in english
