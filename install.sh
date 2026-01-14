@@ -27,10 +27,17 @@ fi
 
 # Use stow to manage .config files 
 # It automatically links files from the project directory to the home directory
-stow i3 
-stow eww
-stow picom
-stow polybar
+
+cp ~/dotfiles/i3/config ~/.config/i3/config
+cp ~/dotfiles/i3/exec.conf ~/.config/i3/exec.conf
+cp ~/dotfiles/i3/keybinds.conf ~/.config/i3/keybinds.conf
+cp ~/dotfiles/i3/window_control.conf ~/.config/i3/window_control.conf
+cp ~/dotfiles/picom/picom.conf ~/.config/picom/picom.conf
+cp ~/dotfiles/polybar/launch.sh ~/.config/polybar/launch.sh
+
+#If you want to make the launch script executable, uncomment the line below
+#chmod +x ~/.config/polybar/launch.sh
+
 
 echo "Installation complete! Please restart your session to apply the changes."
 # Note: Additional steps may be required to fully configure the environment.
