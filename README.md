@@ -6,13 +6,22 @@ This dotfile includes the eww config.
 
 In order to make the .sh executable you need to make this command :
 
-'''
+## For the complete install script
+```bash
 chmod +x ~/dotfiles/install.sh
-chmod +x ~/dotfiles/graphic.sh
-chmod +x ~/dotfiles/ulauncher.sh
-'''
+```
 
-## Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
+## For ONLY the graphic intercaces 
+```bash
+chmod +x ~/dotfiles/graphic.sh
+```
+
+## For ONLY ULauncher
+```bash
+chmod +x ~/dotfiles/ulauncher.sh
+```
+
+### Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
 
 In order to use that you need to uncomments some lines in the installation script.
 
