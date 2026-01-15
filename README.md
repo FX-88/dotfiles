@@ -6,6 +6,8 @@
 
 >DEBIAN ONLY
 
+---
+
 For the installation of the dotfile :
 
 ### For the complete install script
