@@ -1,14 +1,14 @@
 # This is a dotfile configuration for Linux Mint to make it look like Hyprland
 
-## It includes the WM i3 for its customisation
+## It needs to be fully tested on mint
+
+### It includes the WM i3 for its customisation
 
 >DEBIAN ONLY
 
-# It needs to be fully tested on mint.
+For the installation of the dotfile :
 
-In order to make the .sh executable you need to make this command :
-
-## For the complete install script
+### For the complete install script
 
 ```bash
 git clone https://github.com/FX-88/dotfiles.git
@@ -18,6 +18,8 @@ git clone https://github.com/FX-88/dotfiles.git
 cd dotfiles
 ```
 
+In order to make the .sh executable you need to make this command :
+
 ```bash
 chmod +x ./install.sh
 ```
@@ -26,10 +28,20 @@ chmod +x ./install.sh
 ./install.sh
 ```
 
-### Remember, if you add ulauncher, also add it on the exec.conf file to start it everytime
+### Remember, if you install ulauncher, also add it on the exec.conf file to start it everytime
 
-In order to use that you need to uncomments some lines in the installation script.
+>#exec --no-startup-id ulauncher
 
->This dotfile includes the eww config. (it need to be enabled on the complete install script by un-commenting its lines)
+### If polybar has problems with its execution
 
+Un-comment the second line on the exec.conf into the i3 directory :
+
+>#exec --no-startup-id ~/.config/polybar/launch.sh
+
+And comment the following line :
+
+>exec --no-startup-id polybar
+
+Additional Infos :
+>This dotfile includes the eww config (it need to be enabled on the complete install script by un-commenting its lines)
 >Almost every comment line in this dotfile is made in italian (my native languadge), but some of them are in english
