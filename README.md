@@ -71,6 +71,7 @@ To run eww (commands from the official docs) execute this commands :
 ---
 
 Additional Infos :
->This dotfile includes the eww config (it need to be enabled on the complete install script by un-commenting its lines)
+
+>Additional steps may be needed to fully implement the dotfile confguration
 
 >Almost every comment line in this dotfile is made in italian (my native languadge), but some of them are in english
