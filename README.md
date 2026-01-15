@@ -56,6 +56,20 @@ And comment the following line :
 
 ---
 
+### Eww startup 
+
+To run eww (commands from the official docs) execute this commands :
+
+```bash
+./eww daemon
+```
+
+``` bash
+./eww open <window_name>
+```
+
+---
+
 Additional Infos :
 >This dotfile includes the eww config (it need to be enabled on the complete install script by un-commenting its lines)
 

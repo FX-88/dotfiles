@@ -11,22 +11,26 @@ else
 fi
 
 echo "Choose what you want to install:"
-echo "1. Graphic environment"
-echo "2. Complete installation (graphic environment + window manager)"
-echo "3. Just ULauncher"
-echo "4. Exit"
+echo "1. Complete installation (graphic environment [polybar + picom] + window manager [i3])"
+echo "2. Complete installation (graphic environment [eww + picom] + window manager [i3])"
+echo "3. Graphic environment [polybar + picom]"
+echo "4. Just ULauncher"
+echo "5. Exit"
 read choice
 
-if [ "$choice" == "1" ]; then
+if [ "$choice" == "3" ]; then
     chmod +x ./Scripts/graphic.sh
     ./Scripts/graphic.sh
 elif [ "$choice" == "2" ]; then
+    chmod +x ./Scripts/eww.sh
+    ./Scripts/eww.sh
+elif [ "$choice" == "1" ]; then
     chmod +x ./Scripts/complete.sh
     ./Scripts/complete.sh
-elif [ "$choice" == "3" ]; then
+elif [ "$choice" == "4" ]; then
     chmod +x ./Scripts/ulauncher.sh
     ./Scripts/ulauncher.sh
-elif [ "$choice" == "4" ]; then
+elif [ "$choice" == "5" ]; then
     echo "Exiting installation."
     exit 0
 else

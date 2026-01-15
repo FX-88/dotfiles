@@ -14,9 +14,11 @@
 echo "THIS SCRIPT WILL ONLY SETUP THE GRAPHIC ENVIRONMENT. DO YOU WISH TO CONTINUE? (y/n)"
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
+    wait 2s
     continue
 else
     echo "Installation aborted."
+    wait 0.5s
     exit 1
 fi
 
@@ -26,7 +28,7 @@ echo "Updating the system packages"
 sudo apt update && sudo apt upgrade -y
 
 #Install packages
-sudo apt install git eww polybar fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
+sudo apt install git polybar fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
 echo "Installed necessary packages and dependencies."
 
 
@@ -43,14 +45,6 @@ echo "Everythin is installed. Setting up directories"
 #If configuration directories do not exist, create them and copy configuration files#
 if ([ ! -d "$HOME/.config/picom" ] || [ ! -d "$HOME/.config/polybar" ]); then
     #Create configuration directories if they don't exist#
-
-    #IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
-    #if ([ ! -d "$HOME/.config/eww" ]); then
-    #    mkdir -p $HOME/.config/eww
-    #    #cp -r ./eww/* $HOME/.config/eww/
-    #    echo "Finished copying eww configuration files."
-    #fi
-
     if ([ ! -d "$HOME/.config/picom" ]); then
         mkdir -p $HOME/.config/picom
         cp ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
@@ -66,16 +60,14 @@ fi
 else
     #Copy configuration files#
     cp ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
+    cp ~/dotfiles/polybar/config.ini $HOME/.config/polybar/config.ini
     cp ~/dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
     echo "Configuration files copied"
 fi 
 
 
 #If you want to make the launch script executable, uncomment the line below
-#chmod +x ~/.config/polybar/launch.sh
-
-#IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
-#cp ~/dotfiles/eww/eww.rasi $HOME/.config/eww/#
+chmod +x ~/.config/polybar/launch.sh
 
 
 echo "Do you wish to install ulauncher as an application launcher? (y/n)"
