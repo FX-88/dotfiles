@@ -15,7 +15,7 @@ echo "Updating system packages..."
 sudo apt update && sudo apt upgrade -y
 
 echo "Installing required packages..."
-sudo apt install -y git i3 polybar cmake feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
+sudo apt install -y git i3 kitty polybar cmake feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
 echo "Packages installed."
 
 echo "Installing picom from source..."
