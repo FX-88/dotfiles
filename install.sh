@@ -3,8 +3,8 @@
 echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
 echo "ARE YOU TESTING THE SCRIPT? (y/n)"
 read test_answer
-if [ "$test_answer" == "${test_answer#[Yy]}" ] ;then
-    continue
+if [[ "$test_answer" =~ ^[Yy]$ ]]; then
+    echo "Proceeding with installation..."
 else
     echo "Installation aborted."
     exit 1
