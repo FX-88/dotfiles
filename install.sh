@@ -19,7 +19,8 @@ echo "1. Complete installation (graphic environment [polybar + picom] + window m
 echo "2. Complete installation (graphic environment [eww + picom] + window manager [i3])"
 echo "3. Graphic environment [polybar + picom]"
 echo "4. Just ULauncher"
-echo "5. Exit"
+echo "5. Solo copia configurazioni (i3 + picom + polybar)"
+echo "6. Exit"
 read -rp "Selection: " choice
 
 run_script() {
@@ -42,6 +43,9 @@ case "${choice}" in
         run_script "${SCRIPT_DIR}/Scripts/ulauncher.sh"
         ;;
     5)
+        run_script "${SCRIPT_DIR}/Scripts/copy_configs.sh"
+        ;;
+    6)
         echo "Exiting installation."
         exit 0
         ;;
