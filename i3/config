@@ -36,7 +36,6 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -45,6 +44,4 @@ tiling_drag modifier titlebar
 #        font pango:monospace 10
 #}
 
-for_window [class="^.*"] floating enable
-
-
+# Default: let tiling be the norm; enable floating per-app if needed in window_control.conf
