@@ -18,6 +18,8 @@ For the installation of the dotfile :
 git clone https://github.com/FX-88/dotfiles.git
 ```
 
+---
+
 ```bash
 cd dotfiles
 ```
