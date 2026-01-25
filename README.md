@@ -77,3 +77,7 @@ Additional Infos :
 >Additional steps may be needed to fully implement the dotfile confguration
 
 >Almost every comment line in this dotfile is made in italian (my native languadge), but some of them are in english
+
+>This repo contains code from other repositories as inspiration = 
+>https://github.com/CrescentMnn/dotfiles.git and https://github.com/dharmx/walls.git
+
