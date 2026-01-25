@@ -1,81 +1,45 @@
-#THIS INSTALLATION SCRIPT IS JUST FOR THE GRAPHIC PART, IT DOES NOT INCLUDE THE WINDOW MANAGER SETUP
+#!/usr/bin/env bash
+set -euo pipefail
 
-#echo "THIS SCRIPT NEEDS TO BE TESTED BEFORE BEING USED IN PRODUCTION"
-#echo "ARE YOU TESTING THE SCRIPT? (y/n)"
-#read test_answer
-#if [ "$test_answer" == "${test_answer#[Yy]}" ] ;then
-#    continue
-#else
-#    echo "Installation aborted."
-#    exit 1
-#fi
-
+REPO_ROOT="$(cd -- "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 echo "THIS SCRIPT WILL ONLY SETUP THE GRAPHIC ENVIRONMENT. DO YOU WISH TO CONTINUE? (y/n)"
-read answer
-if [ "$answer" == "${answer#[Yy]}" ] ;then
-    wait 2s
-    continue
-else
+read -rp "Choice: " answer
+if [[ ! "${answer}" =~ ^[Yy]$ ]]; then
     echo "Installation aborted."
-    wait 0.5s
     exit 1
 fi
 
-#Updating system packages
 echo "Starting installation"
 echo "Updating the system packages"
 sudo apt update && sudo apt upgrade -y
 
-#Install packages
-sudo apt install git polybar fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
+echo "Installing packages"
+sudo apt install -y git polybar fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
 echo "Installed necessary packages and dependencies."
 
-
-#Install picom from source#
 echo "Installing picom from source..."
-sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-git clone https://github.com/yshui/picom && cd picom
+tmpdir=$(mktemp -d)
+trap 'rm -rf "${tmpdir}"' EXIT
+sudo apt install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+git clone https://github.com/yshui/picom "${tmpdir}/picom"
+cd "${tmpdir}/picom"
 meson --buildtype=release . build
 ninja -C build
-cp build/src /usr/local/bin
-echo "Everythin is installed. Setting up directories"
+sudo cp build/src/picom /usr/local/bin
+cd "${REPO_ROOT}"
+echo "Everything is installed. Setting up directories"
 
+mkdir -p "$HOME/.config/picom" "$HOME/.config/polybar"
+cp -f "${REPO_ROOT}/picom/picom.conf" "$HOME/.config/picom/picom.conf"
+cp -f "${REPO_ROOT}/polybar/config.ini" "$HOME/.config/polybar/config.ini"
+cp -f "${REPO_ROOT}/polybar/launch.sh" "$HOME/.config/polybar/launch.sh"
+chmod +x "$HOME/.config/polybar/launch.sh"
+echo "Configuration files copied"
 
-#If configuration directories do not exist, create them and copy configuration files#
-if ([ ! -d "$HOME/.config/picom" ] || [ ! -d "$HOME/.config/polybar" ]); then
-    #Create configuration directories if they don't exist#
-    if ([ ! -d "$HOME/.config/picom" ]); then
-        mkdir -p $HOME/.config/picom
-        cp ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
-        echo "Finished copying picom configuration files."
-    fi
-
-    if ([ ! -d "$HOME/.config/polybar" ]); then
-        mkdir -p $HOME/.config/polybar
-        cp ~/dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
-        echo "Finished copying polybar configuration files."
-    fi
-fi
-else
-    #Copy configuration files#
-    cp ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
-    cp ~/dotfiles/polybar/config.ini $HOME/.config/polybar/config.ini
-    cp ~/dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
-    echo "Configuration files copied"
-fi 
-
-
-#If you want to make the launch script executable, uncomment the line below
-chmod +x ~/.config/polybar/launch.sh
-
-
-echo "Do you wish to install ulauncher as an application launcher? (y/n)"
-read ulauncher_answer
-if [ "$ulauncher_answer" == "${ulauncher_answer#[Yy]}" ] ;then
-    chmod +x ./Scripts/ulauncher.sh
-    ./Scripts/ulauncher.sh
+read -rp "Do you wish to install ulauncher as an application launcher? (y/n) " ulauncher_answer
+if [[ "${ulauncher_answer}" =~ ^[Yy]$ ]]; then
+    "${REPO_ROOT}/Scripts/ulauncher.sh"
 fi
 
 echo "Installation complete! Please restart your session to apply the changes."
-# Note: Additional steps may be required to fully configure the environment.
