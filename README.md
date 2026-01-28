@@ -1,6 +1,11 @@
 # This is a dotfile configuration for Linux Mint to make it look like Hyprland
 
-## IT NEEDS TO BE TESTED, IT'S NOT READY FOR IMPLEMENTATION
+##
+
+### Tested on=
+
+- Linux Mint;
+- Debian (partially);
 
 >THIS DOTFILE IS JUST FOR ME TO HAVE THE CONFIGURATION ACROSS ALL MY DEVICES
 
