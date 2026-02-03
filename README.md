@@ -63,7 +63,7 @@ And comment the following line :
 
 ---
 
-### Eww startup 
+### Eww startup
 
 To run eww (commands from the official docs) execute this commands :
 
@@ -83,6 +83,5 @@ Additional Infos :
 
 >Almost every comment line in this dotfile is made in italian (my native languadge), but some of them are in english
 
->This repo contains code from other repositories as inspiration = 
+>This repo contains code from other repositories as inspiration =
 >https://github.com/CrescentMnn/dotfiles.git and https://github.com/dharmx/walls.git
-
