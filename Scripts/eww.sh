@@ -55,31 +55,31 @@ if ([ ! -d "$HOME/.config/i3" ] || [ ! -d "$HOME/.config/picom" ] || [ ! -d "$HO
     #Create configuration directories if they don't exist#
     if ([ ! -d "$HOME/.config/i3" ]); then
         mkdir -p $HOME/.config/i3
-        cp ~/dotfiles/i3/config $HOME/.config/i3/config
-        cp ~/dotfiles/i3/exec.conf $HOME/.config/i3/exec.conf
-        cp ~/dotfiles/i3/keybinds.conf $HOME/.config/i3/keybinds.conf
-        cp ~/dotfiles/i3/window_control.conf $HOME/.config/i3/window_control.conf
+        cp -rf ~/dotfiles/i3/config $HOME/.config/i3/config
+        cp -rf ~/dotfiles/i3/exec.conf $HOME/.config/i3/exec.conf
+        cp -rf ~/dotfiles/i3/keybinds.conf $HOME/.config/i3/keybinds.conf
+        cp -rf ~/dotfiles/i3/window_control.conf $HOME/.config/i3/window_control.conf
         echo "Finished copying i3 configuration files."
     fi
 
     #IF YOU WANT TO USE EWW, UNCOMMENT THE LINES BELOW#
     if ([ ! -d "$HOME/.config/eww" ]); then
         mkdir -p $HOME/.config/eww
-        cp ./eww/* $HOME/.config/eww/
+        cp -rf ./eww/* $HOME/.config/eww/
         echo "Finished copying eww configuration files."
     fi
 
     if ([ ! -d "$HOME/.config/picom" ]); then
         mkdir -p $HOME/.config/picom
-        cp ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
+        cp -rf ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
         echo "Finished copying picom configuration files."
     fi
 fi
 else
     #Copy configuration files#
-    cp ~/dotfiles/i3/* $HOME/.config/i3/*
-    cp ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
-    cp ~/dotfiles/eww/* $HOME/.config/eww/*
+    cp -rf ~/dotfiles/i3/* $HOME/.config/i3/*
+    cp -rf ~/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
+    cp -rf ~/dotfiles/eww/* $HOME/.config/eww/*
 fi 
 
 echo "Do you wish to install ulauncher as an application launcher? (y/n)"

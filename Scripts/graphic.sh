@@ -31,9 +31,9 @@ cd "${REPO_ROOT}"
 echo "Everything is installed. Setting up directories"
 
 mkdir -p "$HOME/.config/picom" "$HOME/.config/polybar"
-cp -f "${REPO_ROOT}/picom/picom.conf" "$HOME/.config/picom/picom.conf"
-cp -f "${REPO_ROOT}/polybar/config.ini" "$HOME/.config/polybar/config.ini"
-cp -f "${REPO_ROOT}/polybar/launch.sh" "$HOME/.config/polybar/launch.sh"
+cp -rf "${REPO_ROOT}/picom/picom.conf" "$HOME/.config/picom/picom.conf"
+cp -rf "${REPO_ROOT}/polybar/config.ini" "$HOME/.config/polybar/config.ini"
+cp -rf "${REPO_ROOT}/polybar/launch.sh" "$HOME/.config/polybar/launch.sh"
 chmod +x "$HOME/.config/polybar/launch.sh"
 echo "Configuration files copied"
 
