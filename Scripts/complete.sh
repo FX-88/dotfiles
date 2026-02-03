@@ -15,7 +15,7 @@ echo "Updating system packages..."
 sudo apt update && sudo apt upgrade -y
 
 echo "Installing required packages..."
-sudo apt install -y git i3 i3lock i3blocks i3status alacritty kitty polybar cmake feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
+sudo apt install -y git fonts-firacode i3 i3lock i3blocks i3status alacritty kitty polybar cmake feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
 echo "Packages installed."
 
 mkdir -p /home/"$USER"/Wallpapers
