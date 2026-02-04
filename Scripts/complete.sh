@@ -19,7 +19,7 @@ sudo apt install -y git fonts-firacode i3 i3lock i3blocks i3status alacritty kit
 echo "Packages installed."
 
 mkdir -p /home/"$USER"/Wallpapers
-git clone https://github.com/dharmx/walls.git /home/"$USER"/Wallpapers
+git clone https://github.com/mohammedmehdio/Wallpaper-Collection.git /home/"$USER"/Wallpapers
 
 echo "Installing picom from source..."
 tmpdir=$(mktemp -d)

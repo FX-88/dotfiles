@@ -15,8 +15,11 @@ echo "Updating the system packages"
 sudo apt update && sudo apt upgrade -y
 
 echo "Installing packages"
-sudo apt install -y git kitty polybar cmake fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
+sudo apt install -y git alacritty fonts-firacode kitty polybar cmake fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq meson ninja-build
 echo "Installed necessary packages and dependencies."
+
+mkdir -p /home/"$USER"/Wallpapers
+git clone https://github.com/mohammedmehdio/Wallpaper-Collection.git /home/"$USER"/Wallpapers
 
 echo "Installing picom from source..."
 tmpdir=$(mktemp -d)

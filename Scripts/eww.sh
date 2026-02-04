@@ -22,8 +22,11 @@ echo "Updating system packages..."
 sudo apt update && sudo apt upgrade -y
 
 #Install necessary packages#
-sudo apt install git i3 feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
+sudo apt install git i3 alacritty fonts-firacode feh fonts-jetbrains-mono fonts-font-awesome build-essential libgtk-3-dev libgtk-layer-shell-dev pamixer xdotool jq
 echo "Installed necessary packages and dependencies."
+
+mkdir -p /home/"$USER"/Wallpapers
+git clone https://github.com/mohammedmehdio/Wallpaper-Collection.git /home/"$USER"/Wallpapers
 
 #Install picom from source#
 echo "Installing picom from source..."
