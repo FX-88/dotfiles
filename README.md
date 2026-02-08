@@ -11,7 +11,7 @@
 
 ### It includes the WM i3 for its customisation
 
->DEBIAN ONLY
+>DEBIAN-based ONLY
 
 ---
 
