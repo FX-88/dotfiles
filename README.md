@@ -4,7 +4,7 @@
 
 ### Tested on=
 
-- Linux Mint;
+- Linux Mint 22.2;
 - Debian (partially);
 
 >THIS DOTFILE IS JUST FOR ME TO HAVE THE CONFIGURATION ACROSS ALL MY DEVICES
