@@ -85,3 +85,5 @@ Additional Infos :
 
 >This repo contains code from other repositories as inspiration =
 >https://github.com/CrescentMnn/dotfiles.git and https://github.com/dharmx/walls.git
+
+>The base of this repo was made with AI, but the major adjustment (like I3 confis files and the polybar fix) are made by me
